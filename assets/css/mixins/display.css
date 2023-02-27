@@ -1,0 +1,38 @@
+/* Postcss-mixins with display breakepoints 
+
+	Example of usage: 
+	@import '@/assets/css/mixins/display.css'
+	
+	body {
+		font-weight: 0.75rem;
+		
+		@mixin md { 
+			font-weight: 1.5rem;
+		};
+	} 	
+
+	0  <->  600  <->  960  <->  1264  <-> 1904 <-> 
+       xs  -|-   sm  -|-   md  -|-   lg  -|-  xl    
+		   
+*/
+
+@define-mixin sm {
+	@media (min-width: 600px) {
+		@mixin-content;
+	}
+}
+@define-mixin md {
+	@media (min-width: 760px) {
+		@mixin-content;
+	}
+}
+@define-mixin lg {
+	@media (min-width: 1264px) {
+		@mixin-content;
+	}
+}
+@define-mixin xl {
+	@media (min-width: 1904px) {
+		@mixin-content;
+	}
+}

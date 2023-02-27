@@ -1,0 +1,25 @@
+{
+	"nav": {
+		"signin": "zaloguj",
+		"register": "Zarejestruj się",
+		"lang": "jezyk",
+		"home": "dom",
+		"about": "o nas",
+		"offers": "oferty",
+		"vuetify": "vuetify",
+		"blog": "blog",
+		"contact": "kontakt",
+		"more": "wiecej"
+	},
+	"btn": {
+		"login": "zaloguj",
+		"logout": "wyloguj"
+	},
+	"lang": {
+		"en": "angielski",
+		"pl": "polski",
+		"es": "hiszpanski",
+		"sv": "szwdzki",
+		"fr": "francuski"
+	}
+}

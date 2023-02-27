@@ -1,0 +1,71 @@
+{
+	"welcome": "welcome",
+	"nav": {
+		"signin": "Sign in",
+		"register": "Register",
+		"lang": "language",
+		"home": "home",
+		"about": "about",
+		"tests": "tests",
+		"offers": "our offers",
+		"locations": "locations",
+		"blog": "blog",
+		"contact": "contact",
+		"admin": "admin panel",
+		"more": "more"
+	},
+	"btn": {
+		"back": "back",
+		"login": "log in",
+		"logout": "log out",
+		"reset": "reset",
+		"next": "next"
+	},
+	"lang": {
+		"en": "english",
+		"pl": "polish",
+		"es": "spanish",
+		"sv": "swedish"
+	},
+	"user": {
+		"back_to": "Back to",
+		"enter_email": "Email address",
+
+		"provide_email": "Provide your email address",
+		"provide_email_info": "this email will become your user id",
+		"enter_password": "Enter your password",
+
+		"reg_traveler": "I'm a traveler",
+		"reg_partner": "New partner",
+
+		"link_register": "Register »",
+		"link_reset": "Reset »",
+		"link_signin": "Sign In »",
+
+		"reset": "Reset password",
+		"reset_enter_email": "Enter e-mail address used to sign in",
+		"reset_info": "If your account is active, an email will be sent to you with further resetting instructions.",
+
+		"qst_remember_me": "Remember me?",
+		"qst_new_user": "New user or partner?",
+		"qst_forgot_psw": "Forgot login password?",
+		"qst_have_account": "Already have an account?",
+		"qst_become_parter": "Do you want to become our partner?",
+
+		"welcome_traveler": "We are happy that you want to travel with us!",
+
+		"info_traveler_login": "If you have booked with us previously, you can sign in with your provided e-mail. Please reset the password if you lost it.",
+		"info_traveler_register": "We will automatically create an account for you when you book your first adventure with us. Then you can sign in with your provided e-mail.",
+		"info_partner_register": "As our partner you can list your offerings here and reach our visitors"
+	},
+	"test": {
+		"layouts": "Layouts",
+		"boxes": "Boxes",
+		"typography": "Typography",
+		"components": "Components",
+		"vuetify": "vuetify"
+	},
+	"temp": {
+		"text": "Text"
+	}
+}

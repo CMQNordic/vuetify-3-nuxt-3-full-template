@@ -1,0 +1,22 @@
+/* Postcss-mixins centering container */
+
+@define-mixin hoover $test {
+	$(test) {
+		display: inline-block;
+	}
+
+	$(test):hover {
+		@mixin-content;
+	}
+
+	$(test):before {
+		display: block;
+		content: attr(title);
+		@mixin-content;
+		pointer-events: none;
+		visibility: hidden;
+		user-select: none;
+		overflow: hidden;
+		height: 0;
+	}
+}

@@ -1,0 +1,40 @@
+/***********************************/
+/* Customization of Vuetify themes */
+/***********************************/
+/* 
+	When you customize "background" but not "on-background" then "on-background"		   
+ 	automatically gets visible contract color. But when "background" is undefined   
+ 	(transparent) then we must set corresponding "on-background" */
+customized-light {
+	/* Main background color of the site whole site (default: #ffffff) 	*/
+	/* Used in: <v-app> | <v-container> | <v-main> | <v-row> | <v-col> 	*/
+	background: #f89292;
+
+	/* Background color of the main elements (default: #ffffff) 			*/
+	/* Used  in: <v-app-bar> (header) | <v-footer> | <v-nav-drawer> (side nav) */
+	/* <v-card> | <v-btn> |  <v-switch>  */
+	surface: #ffffff;
+
+	primary: #6200ee; /* Default: #6200ee */
+	secondary: #03dac6; /* Default: #03dac6 */
+
+	error: #b00020; /* Default: #b00020 */
+	success: #4caf50; /* Default: 4caf50 */
+	warning: #fb8c00; /* Default: fb8c00 */
+	info: #2196f3; /* Default: 2196f3 */
+	code: #ee1010; /* Default: f5f5f5 */
+
+	/*****************/
+	/* Custom colors */
+	/*****************/
+	branding: #254642; /* color of branding text in the header */
+
+	link: #335bfb; /* color of links */
+
+	btn: #ff6bd0; /* color of the buttons */
+	on-btn-light: #f8f8f8;
+	on-btn-dark: #110101;
+
+	accent: #00c853; /* special accent color */
+	on-accent: #ffffff;
+}

@@ -1,0 +1,32 @@
+/* Postcss-mixins centering container */
+
+/* Centers relative child container with "position absolute method" 
+	note: parent must be positioned relative! */
+@define-mixin center-absolute {
+	top: 50%;
+	left: 50%;
+	position: absolute;
+	transform: translate(-50%, -50%);
+
+	@mixin-content;
+}
+/* Centers wrapped child or children with "flex method" */
+@define-mixin center-flex {
+	display: flex;
+	flex-direction: column;
+	justify-content: center;
+	align-items: center;
+	gap: 4px;
+
+	@mixin-content;
+}
+/* Example of usage: 
+	@import '@/assets/css/mixins/center.css';
+	
+	.center-container {
+		@mixin center-absolute {
+			width: 100%;
+			text-align: center;
+		} 
+	} 	
+ */

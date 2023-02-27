@@ -1,0 +1,1 @@
+#### Functions that are run before router handles the route

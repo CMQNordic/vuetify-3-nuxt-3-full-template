@@ -1,0 +1,115 @@
+/*******************************************************************/
+/* Customization of this app usig css variables and media queries. */
+/*******************************************************************/
+:root {
+	/*********************************************************/
+	/* Colors 													  			*/
+	/* Overwriten by Vuetify theme (if used)						*/
+	/*********************************************************/
+	--app-root-background-color: white;
+	--app-root-text-color: black;
+
+	/*********************************************************/
+	/* Texts																	*/
+	/* Owerwrites Vuetify defaults									*/
+	/*********************************************************/
+	--app-root-text-font: Lato, "Helvetica neue", Helvetica, Arial, sans-serif;
+	--app-root-line-height: 1.6;
+	--app-root-font-weight: 400;
+	--app-root-font-size: 1rem; /* 16px */
+
+	@mixin sm {
+		/* Applied for screens wider than 600px */
+		--app-root-font-size: 1.15rem; /* 18px */
+	}
+	@mixin md {
+		/* Applied for screens wider than 960px */
+		--app-root-font-size: 1.25rem; /* 20px */
+	}
+
+	/*********************************************************/
+	/* Headings															   */
+	/* Styling for h1-h6 and heading-classes						*/
+	/*********************************************************/
+	--app-heading-font-family: Koho, var(--app-root-text-font);
+	--app-heading-font-weight: 400;
+	--app-heading-line-height: 1.2;
+	--app-heading-font-size: 1.25rem; /* 20px */
+
+	@mixin sm {
+		/* Applied for screens wider than 600px */
+		--app-heading-font-size: 1.75rem; /* 28px */
+	}
+	@mixin md {
+		/* Applied for screens wider than 960px */
+		--app-heading-font-size: 2rem; /* 32px */
+	}
+
+	/*********************************************************/
+	/* Cards 																*/
+	/* Applies to <app-card> component								*/
+	/*********************************************************/
+	--app-card-max-width: 720px;
+
+	@mixin xl {
+		/* Applied for screens wider than 1904px */
+		--app-card-max-width: 920px;
+	}
+
+	/*********************************************************/
+	/* Navigation items		 											*/
+	/*********************************************************/
+	--app-nav-item-font-weight: 600;
+	--app-nav-item-font-size: 1.125rem;
+	--app-nav-item-letter-spacing: normal;
+
+	/*********************************************************/
+	/* Logotype 														   */
+	/*********************************************************/
+	--app-header-logo-width: 100px;
+	--app-header-logo-height: 60px;
+	@mixin sm {
+		/* Applied for screens wider than 600px */
+		--app-header-logo-width: 140px;
+		--app-header-logo-height: 70px;
+	}
+	@mixin md {
+		/* Applied for screens wider than 960px */
+		--app-header-logo-width: 180px;
+	}
+
+	/***********************************************************/
+	/* Header | Main | Footer			   							  */
+	/***********************************************************/
+	/* Important 
+		Use 'px' or 'rem. To disable use 0px, NOT 0.  			
+		Note! "header-height" is defined in app.js. */
+
+	/* Header */
+	--app-header-top-margin: 0px;
+	--app-header-top-padding: 0px;
+	--app-header-row-height: 41px; /* "Link row" height */
+	--app-header-row-space: 5px; /* Space beetween "link rows" */
+	--app-header-x-padding: 10px; /* Space on the sides */
+	/* Main  */
+	--app-main-x-padding: var(--app-header-x-padding); /* Space on the sides */
+	/* Footer */
+	--app-footer-bottom-margin: 0px;
+	--app-footer-bottom-padding: 0px; /* Unused */
+	--app-footer-row-height: 0px; /* Unused */
+	--app-footer-row-space: 0px; /* Unused */
+	--app-footer-x-padding: var(--app-header-x-padding); /* Space on the sides */
+
+	@mixin md {
+		/* Applied for screens wider than 960px */
+		--app-header-top-padding: 20px; /* Top paddings */
+	}
+	@mixin lg {
+		/* Applied for screens wider than 1264px */
+		--app-header-x-padding: 118px;
+	}
+	@mixin xl {
+		/* Applied for screens wider than 1904px */
+		--app-header-x-padding: 178px;
+	}
+}

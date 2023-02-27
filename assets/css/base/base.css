@@ -1,0 +1,82 @@
+/* Remove scrollbar when not needed (vuetify reset shows it always) */
+/* html {
+	overflow-y: auto;
+} */
+
+body {
+	/* Those styles overwrite Vuetify root styles */
+	font-size: var(--app-root-font-size);
+	font-family: var(--app-root-text-font);
+	font-weight: var(--app-root-font-weight);
+	line-height: var(--app-root-line-height);
+
+	/* Those colors are usually overwritten by Vuetify theme (if used) */
+	background-color: var(--app-root-background-color, inherit);
+	color: var(--app-root-text-color, inherit);
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+	font-family: var(--app-heading-font-family);
+	line-height: var(--app-heading-line-height);
+}
+
+img,
+svg,
+video {
+	max-width: 100%;
+	height: auto;
+}
+
+a {
+	text-decoration: none;
+	color: blue;
+}
+
+img,
+svg,
+video,
+canvas,
+audio,
+iframe,
+embed,
+object {
+	display: block;
+}
+
+ol,
+ul {
+	margin: 0;
+	padding: 0;
+	list-style: none;
+}
+
+/**
+ * Avoid 300ms click delay on touch devices supporting `touch-action` CSS property.
+ *
+ * In particular, unlike most other browsers, IE11+Edge on Windows 10 on
+ * touch devices and IE Mobile 10-11 DON'T remove the click delay when
+ * `<meta name="viewport" content="width=device-width">` is present.
+ * However, they DO support removing the click delay via
+ * `touch-action: manipulation`.
+ *
+ * See:
+ * - http://v4-alpha.getbootstrap.com/content/reboot/#click-delay-optimization-for-touch
+ * - http://caniuse.com/#feat=css-touch-action
+ * - http://patrickhlauke.github.io/touch/tests/results/#suppressing-300ms-delay
+ */
+a,
+area,
+button,
+[role='button'],
+input,
+label,
+select,
+summary,
+textarea {
+	touch-action: manipulation;
+}

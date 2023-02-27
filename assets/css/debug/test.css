@@ -1,0 +1,28 @@
+/* Added for test of css treeshaking (nuxt-csspurge configuration) */
+/* All with word used shall exist in final bundle */
+:root {
+	--USED-BROWN: brown;
+}
+.used-base-global-centered-texts {
+	text-align: center;
+}
+.used-base-global-red-text {
+	color: red;
+}
+
+/* Note! Those selectors are not used anywhere. */
+/* Added for test to verify those were removed in final bundle */
+/* Nothing with word unused shall not exist in final bundle */
+:root {
+	--UNUSED-VAR-1: orange;
+	--UNUSED-VAR-2: orange;
+}
+aside {
+	background-color: unused;
+}
+.unused-base-global-class-1 {
+	background-color: orange;
+}
+.unused-base-globalclass-2 {
+	background-color: orange;
+}

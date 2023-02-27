@@ -1,0 +1,7 @@
+{
+	"search.exclude": {
+		"**/_nuxt": true,
+		"**/.nuxt": true
+	},
+	"cSpell.words": ["recursivity"]
+}

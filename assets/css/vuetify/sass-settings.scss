@@ -1,0 +1,16 @@
+/* 
+ * Settings customizing component specific SASS variables (rebuild)
+ *
+ * Vuetify provided precompiles css styles but internally uses sass to build all styles, 
+ * therefore to rebuild all styles ensure to npm i -D sass. 
+ * Note, building performance is affected when many components used. Avoid if not needed.
+ * Many variable not used in components cn be overwritten in another way.
+ * Only put variables, mixins, and functions in this settings file. 			
+ */
+
+@use 'vuetify/settings' with (
+	$font-size-root: var(--app-root-font-size),
+	$line-height-root: var(--app-root-line-height),
+	$body-font-family: var(--app-root-font-family),
+	$heading-font-family: var(--app-heading-font-family)
+);

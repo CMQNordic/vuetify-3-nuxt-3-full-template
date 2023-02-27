@@ -1,0 +1,25 @@
+/**************************************************************************/
+/* verwriting sme default Vuetify styles 						  					  */
+/* Make sure this is imported into project AFTER default 'vuetify/styles' */
+/**************************************************************************/
+
+/* By default Vuetify use font-family 'roboto'. Here we overwrite it       */
+.text-h1,
+.text-h2,
+.text-h3,
+.text-h4,
+.text-h5,
+.text-h6 {
+	font-family: var(--app-heading-font-family, inherit) !important;
+}
+
+.text-subtitle-1,
+.text-subtitle-2,
+.text-body-1,
+.text-body-2,
+.text-button,
+.text-caption,
+.text-overline,
+.text-underline {
+	font-family: inherit !important;
+}

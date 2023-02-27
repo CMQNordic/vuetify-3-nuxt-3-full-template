@@ -1,0 +1,6 @@
+:root {
+	--app-footer-bottom-offset: calc(
+		var(--app-footer-bottom-margin, 0px) + var(--app-footer-bottom-padding, 0px) +
+			var(--app-footer-row-space, 0px)
+	);
+}

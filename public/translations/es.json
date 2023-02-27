@@ -1,0 +1,24 @@
+{
+	"nav": {
+		"signin": "ES sign in",
+		"register": "ES register",
+		"lang": "ES language",
+		"home": "ES home",
+		"about": "ES about",
+		"offers": "ES our offers",
+		"vuetify": "ES vuetify",
+		"blog": "ES blog",
+		"contact": "ES contact",
+		"more": "ES more"
+	},
+	"btn": {
+		"login": "ES log in",
+		"logout": "ES log out"
+	},
+	"lang": {
+		"en": "ingles",
+		"pl": "polaco",
+		"es": "espaniol",
+		"sv": "sueco"
+	}
+}
