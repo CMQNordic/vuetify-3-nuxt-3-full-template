@@ -1,4 +1,7 @@
 ### Optimized starter for Vue 3 + Nuxt 3 + Vuetify 3 project.
+
+updated
+
 Using it as a base for your project will save you TONS of time. Easy to use and easy to extend. It has been well tested and optimized for performance and bundle size in production.
 
 ##### ✅ Watch the introduction video - [here](#TODO)
