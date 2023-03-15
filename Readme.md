@@ -1,5 +1,5 @@
 ### Vue 3 + Nuxt 3 + Vuetify 3 project template
-
+xxx
 Use this as base for your project to save TONS of time. Easy to use and easy to extend. It has been well tested and optimized for performance and bundle size in production.
 
 ##### ✅ Watch the introduction video - [here](#TODO)
