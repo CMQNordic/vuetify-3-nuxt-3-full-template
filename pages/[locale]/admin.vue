@@ -1,4 +1,4 @@
 <template>
 	<div>This is admin panel</div>
-	<the-debug-panel />
+	<admin-panel />
 </template>

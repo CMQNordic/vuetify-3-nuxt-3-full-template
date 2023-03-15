@@ -1,19 +1,14 @@
 <script setup>
-	const { visualizeLayouts, logInfo } = useDebug();
-	logInfo.value ? console.log("INFO", `✅ TheMain`) : "";
+	const { log } = useLogs();
+	const { visualizeLayouts } = useDebug();
+
+	log.INFO((i) => console.log(i, `Initialized TheMain`));
 </script>
 
 <template>
 	<!-- Main -->
-	<v-main
-		class="the-main"
-		:class="{ visualizeLayouts }"
-	>
-		<v-container
-			style="min-height: 100%"
-			class="pa-0"
-			:class="{ visualizeLayouts }"
-		>
+	<v-main class="the-main" :class="{ visualizeLayouts }">
+		<v-container style="min-height: 100%" class="pa-0" :class="{ visualizeLayouts }">
 			<slot />
 		</v-container>
 	</v-main>

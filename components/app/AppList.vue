@@ -45,26 +45,28 @@
 		},
 	});
 
-	/* Use */
-	const { visualizeBoxes, logDebug } = useDebug();
+	/* 
+		Use 
+	*/
+	const { log } = useLogs();
+	const { visualizeBoxes } = useDebug();
 
 	/* Style with same height as navigation items */
 	const itemHeight = props.variant == "nav" ? APP_NAV_ITEM_HEIGHT : undefined;
 
-	logDebug.value
-		? console.log(
-				"DEBUG",
-				`👀 <app-list> variant:'${props.variant}'`,
-				"\n➖ items:",
-				props.items,
-				`\n➖ list-bg:${props.listBg}`,
-				`\n➖ list-width:${props.listWidth}`,
-				`\n➖ items-pt-${props.itemsPt}`,
-				`\n➖ items-px-${props.itemsPx}`,
-				`\n➖ items-pb-${props.itemsPb}`,
-				`\n➖ item-gap:${props.itemGap}`,
-		  )
-		: "";
+	log.INFO(() =>
+		console.log(
+			`<app-list> variant:'${props.variant}'`,
+			"\n➖ items:",
+			props.items,
+			`\n➖ list-bg:${props.listBg}`,
+			`\n➖ list-width:${props.listWidth}`,
+			`\n➖ items-pt-${props.itemsPt}`,
+			`\n➖ items-px-${props.itemsPx}`,
+			`\n➖ items-pb-${props.itemsPb}`,
+			`\n➖ item-gap:${props.itemGap}`,
+		),
+	);
 </script>
 
 <template>

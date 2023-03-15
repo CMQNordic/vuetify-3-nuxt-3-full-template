@@ -35,7 +35,6 @@
 		};
 	}
 
-	/* console.log(`⛔⛔⛔ t:`, typeIconProperties); */
 </script>
 
 <template>

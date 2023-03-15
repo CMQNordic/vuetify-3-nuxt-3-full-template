@@ -1,14 +1,10 @@
 <script setup>
 	defineEmits(["close"]);
 
-	const { logInfo } = useDebug();
-
-	/* 
-		Use 
-	*/
-	const { activeLanguage, supportedLanguages } = useLanguages();
+	const { log } = useLogs();
 	const { visualizeLayouts } = useDebug();
 	const { getNavigationGroup } = useNavigationItems();
+	const { activeLanguage, supportedLanguages } = useLanguages();
 
 	const items = [
 		...getNavigationGroup("top-nav", "nav.more"),
@@ -28,7 +24,7 @@
 		}
 	}
 
-	logInfo.value ? console.log("INFO", `✅ TheSideNavigation`) : "";
+	log.INFO((i) => console.log(i, `Initialized TheSiteNavigation`));
 </script>
 
 <template>
@@ -81,7 +77,6 @@
 					<br />
 					<v-divider></v-divider>
 					<br />
-					<the-debug-panel />
 				</template>
 			</app-list>
 		</div>

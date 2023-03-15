@@ -1,6 +1,7 @@
-import purgecssConfig from "./modules/purgecss/purgecss-config.js";
+import purgecssConfig from "./modules/purgecss/purgecss.config.js";
 import vuetify from "vite-plugin-vuetify";
 
+console.log(`👀➖➖`);
 export default defineNuxtConfig({
 	/* Build mode
 		true + generate  => generates static files, SSG, each page full static  
@@ -13,60 +14,43 @@ export default defineNuxtConfig({
 	/* Global styles
 		https://nuxt.com/docs/api/configuration/nuxt-config/#css 
 	*/
-	css: [
-		/* Vuetify */
-		"vuetify/styles",
-		/* Add default Vuetify styles before as this shall override those */
-		"@/assets/css/vuetify/custom-styles.css",
-		/* Add all styles that main shall override before */
-		"@/assets/css/main.css",
-	],
+	css: ["@/assets/css/main.css"],
 
 	/* Postcss plugins
 		https://nuxt.com/docs/api/configuration/nuxt-config/#postcss 
 	*/
 	postcss: {
 		plugins: {
-			/* Build in */
-			/* cssnano: false // to dissable */
-			/* Installed */
+			/* Build-in postcss plugins*/
+			cssnano: true, // false to dissable (default true)
+			/* installed devDependencies */
 			"postcss-mixins": {},
 			"postcss-simple-vars": {},
 			"postcss-nested": {},
 		},
 	},
 
-	/* Extend nuxt core functionality
+	/* External modules
 		https://nuxt.com/docs/api/configuration/nuxt-config/#modules 
 	*/
 	modules: [
-		/* @nuxtjs/i18n
-			https://i18n.nuxtjs.org/ 
-		*/
-		// [
-		// 	'@nuxtjs/i18n',
-		// 	{
-		// 		locales: ['en', 'fr'], // used in URL path prefix
-		// 		defaultLocale: 'en', // default locale of your project for Nuxt pages and routings
-		// 		vueI18n: {
-		// 			legacy: false,
-		// 			locale: 'en',
-		// 			messages: {
-		// 				en: {
-		// 					welcome: 'Welcome',
-		// 				},
-		// 				fr: {
-		// 					welcome: 'Bienvenue',
-		// 				},
-		// 			},
-		// 		},
-		// 	},
-		// ],
-
-		/* For vueUse inn nuxt
+		/* VueUse composables for nuxt
 			DevDependency: @vueuse/core, @vueuse/nuxt
-			https://vueuse.org/ */
+		*/
 		["@vueuse/nuxt", {}],
+
+		/* 
+			Remove unused CSS 
+			DevDependency: nuxt-purgecss
+			https://github.com/developmint/nuxt-purgecss
+		*/
+		[
+			"nuxt-purgecss",
+			{
+				enabled: false, // true|false
+				...purgecssConfig,
+			},
+		],
 
 		/* Autoimport only used vuetify components
 			Dependency: vuetify & vite-plugin-vuetify
@@ -76,7 +60,6 @@ export default defineNuxtConfig({
 			nuxt.hooks.hook("vite:extendConfig", (config) => {
 				config?.plugins?.push(
 					vuetify({
-						/* Autoimports */
 						autoImport: true,
 						/* https://next.vuetifyjs.com/en/features/sass-variables/#component-specific-variables */
 						/* Sass variable customization. Dependency: sass. Slows down dev/build a lot. Avoid. 	*/
@@ -85,22 +68,9 @@ export default defineNuxtConfig({
 				);
 			});
 		},
-
-		/* 
-			Removes unused css 
-			DevDependency: nuxt-purgecss
-			https://github.com/developmint/nuxt-purgecss
-		*/
-		[
-			"nuxt-purgecss",
-			{
-				enabled: false, // on|off
-				...purgecssConfig,
-			},
-		],
 	],
 
-	/* Applied to every page  
+	/* Applied to every page head  
 		https://nuxt.com/docs/api/configuration/nuxt-config/#app */
 	app: {
 		baseURL: "/",
@@ -128,34 +98,29 @@ export default defineNuxtConfig({
 	},
 
 	build: {
-		/* 
-			Vuetify specific. A bit unsure why we need this? 
+		/* Vuetify specific transpilation. 
+			Run when building css. 
 		*/
-		/* transpile: ["vuetify"], */
+		transpile: ["vuetify"],
 
-		/* 
+		/* Bundle analysis
 			https://nuxt.com/docs/api/configuration/nuxt-config/#analyze 
 		*/
-		analyze: false, // enable bundle analysis
+		analyze: false,
 	},
 
 	vite: {
 		build: {
-			/* 
-				Dissable js minification with false (default true).
-			*/
-			minify: true,
+			/* Dissable js minification */
+			minify: true, // disable with false (default true)
 		},
 	},
 
-	/* rules fr cmpets flder */
+	/* @/components folder */
 	components: [
 		{
-			/* 
-				false, do not concat folder and filename for component name (default true)
-			*/
 			path: "~/components/",
-			pathPrefix: false,
+			pathPrefix: false /* false -> don't concat folder & filename */,
 		},
 	],
 });

@@ -6,11 +6,10 @@
 		Use 
 	*/
 	const route = useRoute();
-	const { getNavigationGroup } = useNavigationItems();
-	const { visualizeLayouts, logInfo, logDebug } = useDebug();
+	const { log } = useLogs();
+	const { visualizeLayouts } = useDebug();
+	const { getNavigationGroup, getNavigationItem } = useNavigationItems();
 	const { supportedLanguages, activeLanguage, activeLocale, tPath } = useLanguages();
-
-	logInfo.value ? console.log("INFO", `✅ TheHeader`, activeLocale.value) : "";
 
 	/* 
 		Side navigation  
@@ -28,7 +27,6 @@
 	/* 
 		Event handlers 
 	*/
-	// Handle selection of language
 	function handleLanguageSelection(language) {
 		!language?.locale ? console.log(null.DEV_ASSERT_locale_is_missing) : "";
 
@@ -48,9 +46,8 @@
 				});
 		}
 	}
-	// Handle click on a navigation item
 	function handleNavigationItemClick(item) {
-		logDebug.value ? console.log("DEBUG", `👀 <the-header> Click on item:`, item) : "";
+		log.info((i) => console.log(i, `handleNavigationItemClick()`, item));
 
 		if (item?.path) {
 			navigateTo(tPath(item.path)).catch((err) => {
@@ -61,6 +58,8 @@
 			});
 		}
 	}
+
+	log.INFO((i) => console.log(i, `Initialized TheHeader`));
 </script>
 
 <template>
@@ -68,12 +67,12 @@
 	<app-progress v-model="showProgress" @close="closeProgress" fullscreen />
 
 	<!-- Side navigation (hidden by default) -->
-	<!-- <TheSideNavigation v-model="showSideNavigation" @close="toggleSideNavigation" /> -->
+	<TheSideNavigation v-model="showSideNavigation" @close="toggleSideNavigation" />
 
 	<!-- The header  -->
 	<v-app-bar
 		:height="APP_HEADER_HEIGHT"
-		class="the-header elevation-2 bg-surface"
+		class="the-header elevation-2"
 		:class="{ visualizeLayouts }"
 	>
 		<!-- Logo -->

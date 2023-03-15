@@ -3,5 +3,5 @@
 		"**/_nuxt": true,
 		"**/.nuxt": true
 	},
-	"cSpell.words": ["recursivity"]
+	"cSpell.words": ["recursivity", "TODO"]
 }

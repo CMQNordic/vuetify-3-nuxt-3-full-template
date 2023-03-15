@@ -1,5 +1,5 @@
 <script setup>
-	import { useNavigationItems } from "@/composables/useNavigationItems";
+	import { useNavigationItems } from "~~/composables/useNavigationItems";
 
 	defineEmits(["selection"]);
 	const props = defineProps({

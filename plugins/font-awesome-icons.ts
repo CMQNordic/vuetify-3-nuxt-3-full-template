@@ -10,12 +10,11 @@ import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { library } from "@fortawesome/fontawesome-svg-core";
 import { faIcons } from "@/app/icons.js";
 
-const { logInfo } = useDebug();
+const { log } = useLogs();
 
 export default defineNuxtPlugin((nuxtApp) => {
 	nuxtApp.vueApp.component("font-awesome-icon", FontAwesomeIcon);
 	library.add(...faIcons);
 
-	if (!process.server && logInfo.value)
-		console.log("INFO", `✅ Initialized Font Awesome Icons:`, faIcons);
+	log.INFO((i) => console.log(i, `Initialized FA Icons:`, faIcons));
 });

@@ -1,15 +1,16 @@
 <script setup>
-	const { visualizeLayouts, logInfo } = useDebug();
-	logInfo.value ? console.log("INFO", `✅ TheFooter`) : "";
+	/* 
+		Use 
+	*/
+	const { log } = useLogs();
+	const { visualizeLayouts } = useDebug();
+
+	log.INFO((i) => console.log(i, `Initialized TheFooter`));
 </script>
 
 <template>
 	<!-- Footer -->
-	<v-footer
-		app
-		class="the-footer elevation-0"
-		:class="{ visualizeLayouts }"
-	>
+	<v-footer app class="the-footer elevation-0" :class="{ visualizeLayouts }">
 		<v-row
 			no-gutters
 			class="justify-center text-overline font-weight-black"
@@ -24,10 +25,7 @@
 				href="https://dev.to/czerma/how-to-build-optimized-vuetify-3-nuxt-3-project-4l5k"
 				target="_blanc"
 			>
-				<app-icon
-					icon="$info"
-					color="accent"
-				/>
+				<app-icon icon="$info" color="accent" />
 			</v-btn>
 		</v-row>
 	</v-footer>

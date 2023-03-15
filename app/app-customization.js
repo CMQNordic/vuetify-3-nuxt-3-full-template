@@ -18,5 +18,5 @@ export const APP_NAV_ITEM_HEIGHT = 38;
 
 /* Customized themes 													*/
 import customThemes from "@/app/themes.css?inline";
-import { cssToJs } from "@/helpers/cssToJs.js";
+import { cssToJs } from "~~/utils/cssToJs.js";
 export const themes = cssToJs(customThemes); /* {} to disable */

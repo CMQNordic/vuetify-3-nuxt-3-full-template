@@ -1,0 +1,46 @@
+/* Visualization of layouts */
+.visualizeLayouts {
+	background-color: hsla(195, 56%, 87%, 0.3) !important;
+	outline: 1px solid rgb(49, 71, 77) !important;
+}
+
+/* Visualization of boxes */
+.visualizeBoxes {
+	border: 2px solid lightcoral !important;
+}
+.visualizeBoxes--dotted {
+	border: 2px dotted rgb(177, 77, 77) !important;
+}
+
+/* Visualization of buttons */
+.visualizeButtons {
+	outline: 1px dotted lightcoral !important;
+	background-color: hsla(0, 86%, 83%, 0.15) !important;
+}
+
+/* For temporary visualizations */
+.A {
+	border: 2px dotted blue !important;
+}
+
+.B {
+	outline: 2px solid red !important;
+}
+
+.C {
+	background-color: rgba(254, 98, 98, 0.3) !important;
+	border: 2px dotted red !important;
+}
+
+.BLACK {
+	border: 7px dotted white !important;
+	background-color: black !important;
+}
+
+.X {
+	border: 1px dotted black !important;
+}
+
+.XX {
+	border: 4px dotted black !important;
+}

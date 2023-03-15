@@ -1,20 +1,18 @@
-/*********************************/
-/* This plugin enables Vuetify 3 */
-/*********************************/
-/* 	
-	Good reads about loading icons into Vuetify: 							  												
- 	Add mdi-svg icons: https://next.vuetifyjs.com/en/features/icon-fonts/#material-design-icons-js-svg  	
-	Add fa-svg icons: https://next.vuetifyjs.com/en/features/icon-fonts/#font-awesome-svg-icons 			
-	Multiple sets: https://next.vuetifyjs.com/en/features/icon-fonts/#multiple-icon-sets 			  			
-	Install fa-svg icons: https://fontawesome.com/docs/web/use-with/vue/ 												
-*/
+/** This plugin configures and enables Vuetify 3
+ *
+ *	Good info:
+ * Add mdi-svg icons: https://next.vuetifyjs.com/en/features/icon-fonts/#material-design-icons-js-svg
+ *	Add fa-svg icons: https://next.vuetifyjs.com/en/features/icon-fonts/#font-awesome-svg-icons
+ *	Multiple sets: https://next.vuetifyjs.com/en/features/icon-fonts/#multiple-icon-sets
+ *	Install fa-svg icons: https://fontawesome.com/docs/web/use-with/vue/
+ */
 import { createVuetify } from "vuetify";
-import { themes } from "@/app/app-customization.js"; // theme
-import { i18nConfig } from "@/modules/i18n/vuetify-i18n-config.js"; // translations
-import { initializeI18n } from "@/composables/useLanguages"; // translations
 import { mdi, fa, aliases } from "@/app/icons.js"; // icons
+import { themes } from "@/app/app-customization.js"; // theme
+import { initializeI18n } from "@/composables/useLanguages"; // translations
+import { i18nConfig } from "@/modules/i18n/i18n.vuetify.config.js"; // translations
 
-const { logInfo } = useDebug();
+const { log } = useLogs();
 
 export default defineNuxtPlugin((nuxtApp) => {
 	const vuetify = createVuetify({
@@ -26,7 +24,7 @@ export default defineNuxtPlugin((nuxtApp) => {
 		locale: {
 			...i18nConfig,
 		},
-		//theme: false, // false disables themes
+		//theme: false, // disables themes
 		theme: {
 			defaultTheme: "light",
 			themes: {
@@ -34,7 +32,7 @@ export default defineNuxtPlugin((nuxtApp) => {
 					colors: themes["customized-light"],
 				},
 			},
-			// Build variations of custom selectors in themes
+			// Build variations of custom selectors
 			// variations: {
 			// 	colors: ["accent"],
 			// 	lighten: 2,
@@ -46,14 +44,9 @@ export default defineNuxtPlugin((nuxtApp) => {
 
 	nuxtApp.vueApp.use(vuetify);
 
-	if (!process.server && logInfo.value)
-		console.log(
-			"INFO",
-			`✅ Initialized Vuetify:`,
-			vuetify,
-			"theme:",
-			themes["customized-light"],
-		);
+	log.INFO((i) =>
+		console.log(i, `Initialized Vuetify:`, vuetify, `theme:`, themes["customized-light"]),
+	);
 
 	/* Apply i18n configuration in 'useLanguages' */
 	initializeI18n(

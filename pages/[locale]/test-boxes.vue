@@ -1,8 +1,3 @@
-<script setup>
-	const { visualizeBoxes } = useDebug();
-	visualizeBoxes.value = true;
-</script>
-
 <template>
 	-START-
 	<br />

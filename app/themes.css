@@ -8,7 +8,7 @@
 customized-light {
 	/* Main background color of the site whole site (default: #ffffff) 	*/
 	/* Used in: <v-app> | <v-container> | <v-main> | <v-row> | <v-col> 	*/
-	background: #f89292;
+	background: #fff;
 
 	/* Background color of the main elements (default: #ffffff) 			*/
 	/* Used  in: <v-app-bar> (header) | <v-footer> | <v-nav-drawer> (side nav) */

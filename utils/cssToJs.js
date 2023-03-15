@@ -1,9 +1,12 @@
+/* Parses a css file (provided as string) and returns an object
+	Dependency: style-to-object
+*/
 import parse from "style-to-object";
 
 function removeComments(cssAsString) {
 	let retVal = cssAsString?.trim();
 	let commentStart = retVal?.indexOf("/*");
-	let commentEnd;
+	let commentEnd = -1;
 
 	while (commentStart >= 0) {
 		commentEnd = retVal?.indexOf("*/");
@@ -38,7 +41,7 @@ function convert(cssAsString) {
 }
 
 /* 
-	This fucti is parsig a css file t a bect
+	This function parses a css file (provided as string) and returns an object
 */
 export function cssToJs(cssAsString) {
 	return convert(removeComments(cssAsString));

@@ -1,5 +1,5 @@
 <script setup>
-	import { displayOffsets } from "@/helpers/helpers";
+	import { displayOffsets } from "~~/utils/display.js";
 	const { visualizeBoxes } = useDebug();
 
 	const props = defineProps({

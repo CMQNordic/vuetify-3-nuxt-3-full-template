@@ -1,7 +1,7 @@
 <script setup>
-	const { logInfo } = useDebug();
-	logInfo.value ? console.log("INFO", `✅ app.vue initialized`) : "";
-	onMounted(() => (logInfo.value ? console.log("INFO", `✅ app.vue mounted`) : ""));
+	const { log } = useLogs();
+	log.INFO((i) => console.log(i, `Initialized app.vue`));
+	onMounted(() => log.INFO((i) => console.log(i, `Mounted app.vue`)));
 </script>
 
 <template>

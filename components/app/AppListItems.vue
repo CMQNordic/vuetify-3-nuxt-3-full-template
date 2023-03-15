@@ -1,6 +1,6 @@
 <script setup>
-	import AppListSublist from "@/components/ui/AppListSublist.vue";
-	import AppListItem from "@/components/ui/AppListItem.vue";
+	import AppListSublist from "@/components/app/AppListSublist.vue";
+	import AppListItem from "@/components/app/AppListItem.vue";
 
 	defineEmits(["selection"]);
 	const props = defineProps({

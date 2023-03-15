@@ -23,7 +23,11 @@
 		},
 	});
 
-	const { visualizeButtons, logDebug } = useDebug();
+	/* 
+		Use 
+	*/
+	const { log } = useLogs();
+	const { visualizeButtons } = useDebug();
 
 	// Left padding. Add as style to verwrites internal Vuetify
 	// selectors that are buggy
@@ -46,18 +50,18 @@
 	//  elevati  remves the elevati
 	const defaultClasses = `elevation-0 bg-${props.itemBg}`;
 
-	logDebug.value
-		? console.log(
-				`➖ <app-list-item>`,
-				`${
-					props.isSubitem ? "subitem  " : props.isActivator ? "activator" : "item     "
-				}|h:${props.itemHeight || "   "}|w:${props.item.width || "   "}|bg:${
-					props.itemBg
-				}|${props.item.preIcon ? "(preIcon)" : ""} ${
-					props.item.lKey || props.item.text
-				} ${props.item.icon ? "(icon)" : ""}`,
-		  )
-		: "";
+	log.INFO(() =>
+		console.log(
+			`➖ <app-list-item>`,
+			`${
+				props.isSubitem ? "subitem  " : props.isActivator ? "activator" : "item     "
+			}|h:${props.itemHeight || "   "}|w:${props.item.width || "   "}|bg:${
+				props.itemBg
+			}|${props.item.preIcon ? "(preIcon)" : ""} ${props.item.lKey || props.item.text} ${
+				props.item.icon ? "(icon)" : ""
+			}`,
+		),
+	);
 </script>
 
 <template>

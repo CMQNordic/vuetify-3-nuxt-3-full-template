@@ -1,6 +1,6 @@
 import { supportedLocales, defaultLocales } from "@/app/languages.js";
 
-const { logInfo } = useDebug();
+const { log } = useLogs();
 
 /* Internal
 	An array contain a list of locales for witch the translations are already present in client. 
@@ -38,17 +38,14 @@ const activeLanguage = computed(
 */
 const activeLocale = computed(() => i18n.activeLocale.value);
 
-/* Internal
-	Fetches translation messages for a given locale from server
-	
-	Returns a promise that resolves when the download is completed
-*/
+/** Async function that fetches translation messages from server for given locale.
+ *  @param {string} locale language locale to be downloaded
+ *  @returns promise that resolves when the download is completed, or error.
+ */
 async function downloadTranslation(locale) {
 	const uri = `/translations/${locale}.json`;
 
-	logInfo.value
-		? console.log("INFO", `⬅️🖥️ Downloading translations from '${uri}'.`)
-		: "";
+	log.INFO(() => console.log(`⬅️🖥️ Downloading translations from '${uri}'.`));
 
 	const { data: translations } = await useFetch(uri);
 
@@ -60,16 +57,15 @@ async function downloadTranslation(locale) {
 	Object.assign(i18n.messages.value[locale], translations.value);
 	downloadedTranslations.push(locale);
 
-	logInfo.value
-		? console.log(
-				"INFO",
-				`⬅️🖥️ Downloaded translations for '${locale}':`,
-				"Downloaded translations:",
-				downloadedTranslations,
-				"Current messages:",
-				i18n.messages.value,
-		  )
-		: "";
+	log.INFO(() =>
+		console.log(
+			`⬅️🖥️ Downloaded translations for '${locale}':`,
+			"Downloaded translations:",
+			downloadedTranslations,
+			"Current messages:",
+			i18n.messages.value,
+		),
+	);
 }
 
 /* Exported
@@ -89,12 +85,11 @@ async function changeLanguage(locale) {
 			// change the language
 			i18n.activeLocale.value = newLocale;
 
-			logInfo.value
-				? console.log(
-						"INFO",
-						`🚩 Active language changed from '${previousLocale}' to '${i18n.activeLocale.value}'`,
-				  )
-				: "";
+			log.INFO(() =>
+				console.log(
+					`🚩 Active language changed from '${previousLocale}' to '${i18n.activeLocale.value}'`,
+				),
+			);
 
 			// the change is completed - resolve.
 			return i18n.activeLocale.value;
@@ -192,20 +187,20 @@ export function initializeI18n(
 			: console.log(null.DEV_ASSERT_function_tPath_already_in_use);
 	}
 
-	logInfo.value
-		? console.log(
-				"INFO",
-				`✅ Initialized I18n by '${i18nType}'.`,
-				`Active:'${i18n.activeLocale.value}'`,
-				tFunction ? "External: $t," : "Internal $t,",
-				nFunction ? "$n" : "$n",
-				localePathFunction ? "External $tPath." : "Internal $tPath.",
-				"Downloaded translations:",
-				downloadedTranslations,
-				`Current messages:`,
-				i18n.messages.value,
-		  )
-		: "";
+	log.INFO((i) =>
+		console.log(
+			i,
+			`Initialized Languages.\ni18n by '${i18nType}'.`,
+			`Active:'${i18n.activeLocale.value}'`,
+			tFunction ? "External: $t," : "Internal: $t,",
+			nFunction ? "$n" : "$n",
+			localePathFunction ? "External: $tPath." : "Internal: $tPath.",
+			"Downloaded translations:",
+			downloadedTranslations,
+			`Current messages:`,
+			i18n.messages.value,
+		),
+	);
 }
 
 /* Exported

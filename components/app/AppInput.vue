@@ -1,8 +1,8 @@
 <script setup>
-	import { useLanguages } from '~~/composables/useLanguages.js';
+	import { useLanguages } from "~~/composables/useLanguages.js";
 	const { t } = useLanguages();
 
-	const emit = defineEmits(['cleared']);
+	const emit = defineEmits(["cleared"]);
 	const props = defineProps({
 		lKey: {
 			type: String, // label (inner field) text fetched by language key for translations
@@ -20,8 +20,8 @@
 
 	/* 	console.log(`👀👀 intialized form=`, props.form); */
 
-	const labelText = props.lKey ? t(props.lKey) : '';
-	const labelTextOuter = props.lKeyOuter ? t(props.lKeyOuter) : '';
+	const labelText = props.lKey ? t(props.lKey) : "";
+	const labelTextOuter = props.lKeyOuter ? t(props.lKeyOuter) : "";
 	let currentLabel = ref(labelText);
 
 	/* Event handlers */
@@ -40,7 +40,7 @@
 		console.log(`👀👀 form.resetValidation = `, props.form.resetValidation); */
 		if (!value) {
 			console.log(`➡️➡️➡️ Emits cleared`);
-			emit('cleared');
+			emit("cleared");
 		}
 	};
 </script>
@@ -53,6 +53,7 @@
 		clearable
 		clear-icon="$close"
 		@update:focused="handleFocusChange($event, $refs.thisElement?.value)"
-		@update:modelValue="handleValueChange($event, $refs.thisElement?.value)">
+		@update:modelValue="handleValueChange($event, $refs.thisElement?.value)"
+	>
 	</v-text-field>
 </template>

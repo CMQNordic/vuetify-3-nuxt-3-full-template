@@ -17,7 +17,7 @@
 	<script> import { mdiAccount } from '@mdi/js'
 	<template> <v-icon :icon="mdiAccount" /> */
 
-/* Add "imports" here  */
+/* ADD IMPORTS HERE  */
 /*
 	For SVG Vue icons:
 	Import whole vue component that embeds the SVG.
@@ -29,7 +29,6 @@
 	Dependency:  @fortawesome/free-solid-svg-icons
 	Dependency:  @fortawesome/free-regular-svg-icons
 	Dependency:  @fortawesome/free-brands-svg-icons */
-import vueTestIcon from "@/components/icons/test-icon.vue";
 import { mdiAccount } from "@mdi/js";
 import { mdiCheck } from "@mdi/js";
 
@@ -38,9 +37,8 @@ const faIcons = [];
 /*  
 	Font Awesome icons must be added into this array to be accessed globally */
 
-/* Add "aliases" here */
+/* ADD ALIASES HERE */
 const globalAliases = {
-	"vue-test-icon": vueTestIcon,
 	user: mdiAccount,
 	"mdi-check": mdiCheck,
 };

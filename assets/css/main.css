@@ -1,8 +1,19 @@
+/* Vuetify defaults */
+@import "vuetify/styles";
+
+/* Vuetify customization */
+@import "@/assets/css/vuetify/custom-styles.css";
+
+/* Mixins */
 @import "@/assets/css/mixins/display.css";
-@import "@/app/app-customization.css";
-@import "@/assets/css/base//variables.css";
+
+/* Base */
+@import "@/assets/css/variables/variables.css";
 @import "@/assets/css/base/base.css";
 
+/* App customization */
+@import "@/app/app-customization.css";
+
 /* TODO: Remove in production, for test and debugging purposes only */
-@import "@/assets/css/debug/test.css";
+@import "@/assets/css/debug";
 

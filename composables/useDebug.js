@@ -1,38 +1,52 @@
 import { useStorage } from "@vueuse/core";
 
-/* LOGS */
-const logAll = useStorage("vue-app-visualize-log-all", false);
-const logInfo = useStorage("vue-app-visualize-log-info", false);
-const logDebug = useStorage("vue-app-visualize-log-debug", false);
-/* VISUALIZATIONS */
-const visualizeAll = useStorage("vue-app-visualize-all", false);
-const visualizeLayouts = useStorage("vue-app-visualize-layouts", false);
-const visualizeButtons = useStorage("vue-app-visualize-buttons", false);
-const visualizeBoxes = useStorage("vue-app-visualize-boxes", false);
+const { log } = useLogs();
 
-const setLogAll = () => {
-	logAll.value = !logAll.value;
-	logInfo.value = logAll.value;
-	logDebug.value = logAll.value;
+const bVisualizeAll = useStorage("vue-app-visualize-all", false);
+const bVisualizeLayouts = useStorage("vue-app-visualize-layouts", false);
+const bVisualizeButtons = useStorage("vue-app-visualize-buttons", false);
+const bVisualizeBoxes = useStorage("vue-app-visualize-boxes", false);
+
+const debugStatus = () => {
+	let retVal = {
+		layouts: bVisualizeLayouts.value ? "On" : "Off",
+		buttons: bVisualizeButtons.value ? "On" : "Off",
+		boxes: bVisualizeBoxes.value ? "On" : "Off",
+	};
+	return retVal;
 };
 
-const setVisualizeAll = () => {
-	visualizeAll.value = !visualizeAll.value;
-	visualizeLayouts.value = visualizeAll.value;
-	visualizeButtons.value = visualizeAll.value;
-	visualizeBoxes.value = visualizeAll.value;
+const setVisualizeAll = (val = false) => {
+	bVisualizeAll.value = val;
+	bVisualizeLayouts.value = val;
+	bVisualizeButtons.value = val;
+	bVisualizeBoxes.value = val;
 };
+
+watch([bVisualizeLayouts, bVisualizeButtons, bVisualizeBoxes], (newValues) => {
+	bVisualizeAll.value = !newValues.includes(false);
+	log.INFO((i) => console.log(i, `Debug changed:`, debugStatus()));
+});
+
+log.INFO((i) => console.log(i, `Initialized Debug:`, debugStatus()));
 
 export function useDebug() {
 	return {
-		logInfo,
-		logDebug,
-		logAll: readonly(logAll),
-		setLogAll,
-		visualizeLayouts,
-		visualizeButtons,
-		visualizeBoxes,
-		visualizeAll: readonly(visualizeAll),
-		setVisualizeAll,
+		setDebugAll: setVisualizeAll,
+		refs: {
+			bAll: bVisualizeAll,
+			bLayouts: bVisualizeLayouts,
+			bButtons: bVisualizeButtons,
+			bBoxes: bVisualizeBoxes,
+		},
+		debug: {
+			layouts: bVisualizeLayouts,
+			buttons: bVisualizeButtons,
+			boxes: bVisualizeBoxes,
+		},
+		visualizeAll: bVisualizeAll,
+		visualizeLayouts: bVisualizeLayouts,
+		visualizeButtons: bVisualizeButtons,
+		visualizeBoxes: bVisualizeBoxes,
 	};
 }
